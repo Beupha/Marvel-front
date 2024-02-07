@@ -7,10 +7,16 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #eaeaea;
+  background-color: #292261;
+  color: beige;
 }
 
 .headerDetail {
   display: flex;
   gap: 50px;
+}
+
+.separation {
+  background-color: #fff;
+  height: 1px;
 }

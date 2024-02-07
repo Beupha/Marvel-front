@@ -42,6 +42,7 @@ export default function Header({ token, setToken }) {
           </>
         )}
       </div>
+      <div className="separation"></div>
     </>
   );
 }

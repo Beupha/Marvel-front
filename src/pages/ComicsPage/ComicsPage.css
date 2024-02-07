@@ -1,4 +1,4 @@
-.characterPage {
+.comicsPage {
   padding: 10px;
   padding-top: 20px;
 
@@ -11,39 +11,38 @@
   font-size: 30px;
 }
 
-.characterCard {
+.comicCard {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   margin: auto;
 }
 
-.avatarAndName {
-  /* border: rgb(125, 125, 125) 2px solid; */
-
+.avatarAndNameComic {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   height: 100%;
   width: auto;
 }
 
-.avatarAndName img {
-  height: 190px;
-  width: 190px;
-  border-radius: 30%;
-  margin-bottom: 50px;
+.avatarAndNameComic img {
+  height: 390px;
+  width: 390px;
+  border-radius: 10%;
+  margin-top: 20px;
 }
 
-.characterName {
+.comicName {
   font-size: 22px;
   color: rgb(255, 255, 255);
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
-.characterDescription {
+.comicDescription {
   color: rgb(184, 184, 184);
   width: 400px;
 }

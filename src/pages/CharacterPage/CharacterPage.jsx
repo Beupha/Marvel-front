@@ -40,6 +40,9 @@ export default function CharacterPage() {
             >
               <div className="avatarAndName">
                 <span className="characterName">{character.name}</span>
+                <span className="characterDescription">
+                  {character.description}
+                </span>
                 <img
                   src={
                     character.thumbnail.path +
