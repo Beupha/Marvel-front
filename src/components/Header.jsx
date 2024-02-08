@@ -11,7 +11,7 @@ export default function Header({ token, setToken }) {
           <p>MARVEL</p>
         </Link>
         <Link to="/character">Personnages </Link>
-        <Link to="/comic">Comics </Link>
+        <Link to="/comics">Comics </Link>
 
         {token ? (
           ((

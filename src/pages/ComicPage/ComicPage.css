@@ -1,29 +1,32 @@
-.characterDetailPage {
+.comicDetailPage {
+  padding: 10px;
+  padding-top: 20px;
+  /* width: 100vw; */
+  height: 100vh;
+  background-color: #2a1d3c;
+}
+
+.comicDetailPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   margin: auto;
-  padding: 10px;
-  padding-top: 20px;
-  height: 100vh;
-  width: 100%;
-  background-color: #2a1d3c;
 }
 
-.characterName {
+.comicTitle {
   font-size: 22px;
   color: rgb(255, 255, 255);
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.characterDescription {
+.comicDescriptionDetail {
   color: rgb(184, 184, 184);
   max-width: 60vw;
   text-align: center;
 }
 
-.characterThumbnail {
-  height: 50vh;
+.thumbailComic {
+  max-height: 70vh;
 }

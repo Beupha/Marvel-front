@@ -1,64 +1,51 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./CharacterDetailPage.css";
 
 export default function CharacterPage() {
-  const [characterDetailList, setCharacterDetailList] = useState([]);
+  const [dataCharacter, setDataCharacter] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const params = useParams();
+  const [id, setId] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:3000/character/${_Id}`
+          `http://127.0.0.1:3000/character/${params.characterId}`
         );
-        // console.log("response -->", response);
-        // console.log(" response.data -->", response.data);
-
-        // setCharacterDetailList(response.data);
-        // console.log("characterList -->", characterList);
+        setDataCharacter(response.data);
+        setId(params.characterId);
       } catch (error) {
-        // console.log("response -->", response);
         console.log("Character Detail Page error -->", error.response);
       }
 
       setIsLoading(false);
-      //   console.log("characterList -->", characterList);
     };
     fetchData();
   }, []);
+
+  console.log(dataCharacter);
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <main className="characterDetailPage">
-      <div>Character Detail Page</div>
-      {/* <div className="search">Search</div>
-          <div className="characterCard">
-            {characterList.map((character) => {
-              return (
-                <Link
-                  to={`/character/${character._id}`}
-                  key={character._id}
-                  className="characterCard"
-                >
-                  <div className="avatarAndName">
-                    <span className="characterName">{character.name}</span>
-                    <img
-                      src={
-                        character.thumbnail.path +
-                        "." +
-                        character.thumbnail.extension
-                      }
-                      alt=""
-                    />
-                  </div>
-                </Link>
-              );
-            })}
-          </div> */}
+      <span className="characterName">{dataCharacter.name}</span>
+      <span className="characterDescription">{dataCharacter.description}</span>
+      <img
+        className="characterThumbnail"
+        src={
+          dataCharacter.thumbnail.path + "." + dataCharacter.thumbnail.extension
+        }
+        alt=""
+      />
+      <Link to={`/comics/${id}`} key={id} className="moreCharacter">
+        Cliquer ici pour aller voir la liste des comics dans lesquels ce
+        personnage est présent...
+      </Link>
     </main>
   );
 }

@@ -11,8 +11,7 @@ export default function ComicsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:3000/comic");
-        console.log(" response.data -->", response.data);
+        const response = await axios.get("http://127.0.0.1:3000/comics");
 
         setComicsList(response.data.results);
       } catch (error) {
@@ -20,7 +19,6 @@ export default function ComicsPage() {
       }
 
       setIsLoading(false);
-      //   console.log("characterList -->", characterList);
     };
     fetchData();
   }, []);

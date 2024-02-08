@@ -1,7 +1,6 @@
 .characterPage {
   padding: 10px;
   padding-top: 20px;
-
   background-color: #2a1d3c;
 }
 
@@ -19,14 +18,11 @@
 }
 
 .avatarAndName {
-  /* border: rgb(125, 125, 125) 2px solid; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   height: 100%;
   width: auto;
 }
@@ -41,9 +37,13 @@
 .characterName {
   font-size: 22px;
   color: rgb(255, 255, 255);
+  width: 240px;
+  text-align: center;
 }
 
-.characterDescription {
+.characterDescriptionAll {
   color: rgb(184, 184, 184);
-  width: 400px;
+  width: 300px;
+  text-align: center;
+  margin-bottom: 10px;
 }

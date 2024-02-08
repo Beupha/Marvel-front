@@ -12,7 +12,6 @@ export default function CharacterPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://127.0.0.1:3000/character");
-        console.log(" response.data -->", response.data);
 
         setCharacterList(response.data.results);
       } catch (error) {
@@ -20,7 +19,6 @@ export default function CharacterPage() {
       }
 
       setIsLoading(false);
-      //   console.log("characterList -->", characterList);
     };
     fetchData();
   }, []);
@@ -34,13 +32,13 @@ export default function CharacterPage() {
         {characterList.map((character) => {
           return (
             <Link
-              to={`/character/${character._id}`}
+              to={`/comics/${character._id}`}
               key={character._id}
               className="characterCard"
             >
               <div className="avatarAndName">
                 <span className="characterName">{character.name}</span>
-                <span className="characterDescription">
+                <span className="characterDescriptionAll">
                   {character.description}
                 </span>
                 <img
@@ -50,7 +48,7 @@ export default function CharacterPage() {
                     character.thumbnail.extension
                   }
                   alt=""
-                />
+                />{" "}
               </div>
             </Link>
           );
