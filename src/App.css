@@ -9,6 +9,7 @@ a {
   padding: 20px;
   background-color: #292261;
   color: beige;
+  height: 60px;
 }
 
 .headerDetail {
@@ -16,7 +17,19 @@ a {
   gap: 50px;
 }
 
+.disconnect {
+  color: #fff;
+  background-color: #292261;
+  border: none;
+}
+
 .separation {
   background-color: #fff;
   height: 1px;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
 }

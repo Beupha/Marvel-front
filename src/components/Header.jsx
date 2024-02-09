@@ -1,5 +1,6 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export default function Header({ token, setToken }) {
   const navigate = useNavigate();
@@ -14,8 +15,9 @@ export default function Header({ token, setToken }) {
         <Link to="/comics">Comics </Link>
 
         {token ? (
-          ((
-            <button
+          <>
+            {/* <button
+              className="disconnect"
               onClick={() => {
                 Cookies.remove("userToken");
                 setToken("");
@@ -23,9 +25,18 @@ export default function Header({ token, setToken }) {
               }}
             >
               Se déconnecter
-            </button>
-          ),
-          (
+            </button> */}
+
+            <Link
+              to="/"
+              onClick={() => {
+                Cookies.remove("userToken");
+                setToken("");
+              }}
+            >
+              Se déconnecter{" "}
+            </Link>
+
             <button
               onClick={() => {
                 navigate("/fav");
@@ -33,12 +44,11 @@ export default function Header({ token, setToken }) {
             >
               Favoris
             </button>
-          ))
+          </>
         ) : (
           <>
-            <Link to="/signup">S'inscrire </Link>
-
-            <Link to="/login">Se connecter</Link>
+            <Link to="/user/login">Se connecter</Link>
+            <Link to="/user/signup">S'inscrire </Link>
           </>
         )}
       </div>
