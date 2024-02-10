@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import ReactPaginate from "react-paginate";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./CharacterPage.css";
+// import Paginate from "../../components/paginate";
 
 export default function CharacterPage() {
   const [characterList, setCharacterList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
+  const [nameSearch, setNameSearch] = useState("");
+  const [numberPages, setNumberPages] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:3000/character", {
-          page: page,
-        });
+        const response = await axios.get(
+          `http://127.0.0.1:3000/character?name=${nameSearch}&page=${pageCount}`
+        );
+
+        // console.log("response.data -->", response.data);
+
+        setNumberPages(Math.ceil(response.data.count / response.data.limit));
+        setCount(response.data.count);
+
         setCharacterList(response.data.results);
       } catch (error) {
         console.log("CharacterPage error -->", error);
@@ -24,44 +34,94 @@ export default function CharacterPage() {
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [pageCount, nameSearch]);
+
+  // console.log("pageCount -->", pageCount);
+  // console.log("numberPages -->", numberPages);
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <main className="characterPage">
-      <div className="search">Search</div>
-      {/* <button onClick={setPage((prevState) => prevState + 1)}>
-        Résultats suivants
-      </button> */}
+      <form action="" className="search">
+        <input
+          type="search"
+          placeholder="Recherchez un nom de personnage"
+          id="search"
+          autocomplete="off"
+          value={nameSearch}
+          onChange={(event) => {
+            setNameSearch(event.target.value);
+          }}
+        />
+      </form>
 
-      <div className="characterCard">
-        {characterList.map((character) => {
-          return (
-            <Link
-              to={`/comics/${character._id}`}
-              key={character._id}
-              className="characterCard"
-              // onClick={handleClick()}
+      {count === 0 ? (
+        <p>Aucun résultat n'a été trouvé</p>
+      ) : (
+        <>
+          <div className="changePages">
+            <button
+              className="changePagePrevious"
+              disabled={pageCount == 1}
+              onClick={() => setPageCount((prevState) => prevState - 1)}
             >
-              <div className="avatarAndName">
-                <span className="characterName">{character.name}</span>
-                <span className="characterDescriptionAll">
-                  {character.description}
-                </span>
-                <img
-                  src={
-                    character.thumbnail.path +
-                    "." +
-                    character.thumbnail.extension
-                  }
-                  alt=""
-                />{" "}
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+              Résultats précédents
+            </button>
+            <button
+              className="changePageNext"
+              disabled={pageCount == numberPages || numberPages == 0}
+              onClick={() => setPageCount((prevState) => prevState + 1)}
+            >
+              Résultats suivants
+            </button>
+          </div>
+
+          <div className="characterCard">
+            {characterList.map((character) => {
+              return (
+                <Link
+                  to={`/comics/${character._id}`}
+                  key={character._id}
+                  className="characterCard"
+                >
+                  <div className="avatarAndName">
+                    <span className="characterName">{character.name}</span>
+                    <span className="characterDescriptionAll">
+                      {character.description}
+                    </span>
+                    <img
+                      src={
+                        character.thumbnail.path +
+                        "." +
+                        character.thumbnail.extension
+                      }
+                      alt=""
+                    />{" "}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="changePages">
+            <button
+              className="changePagePrevious"
+              disabled={pageCount == 1}
+              onClick={() => setPageCount((prevState) => prevState - 1)}
+            >
+              Résultats précédents
+            </button>
+            <button
+              className="changePageNext"
+              disabled={pageCount == numberPages || numberPages == 0}
+              onClick={() => setPageCount((prevState) => prevState + 1)}
+            >
+              Résultats suivants
+            </button>
+          </div>
+        </>
+      )}
     </main>
   );
 }

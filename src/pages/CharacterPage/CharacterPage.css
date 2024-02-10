@@ -2,6 +2,7 @@
   padding: 10px;
   padding-top: 20px;
   background-color: #2a1d3c;
+  min-height: 100vh;
 }
 
 .search {
@@ -50,4 +51,27 @@
 
 .nextPage {
   color: white;
+}
+
+.changePages {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search input {
+  text-align: center;
+  border-radius: 20px;
+  width: 400px;
+  font-size: 18px;
+}
+
+.search {
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  color: white;
+  text-align: center;
 }

@@ -16,17 +16,6 @@ export default function Header({ token, setToken }) {
 
         {token ? (
           <>
-            {/* <button
-              className="disconnect"
-              onClick={() => {
-                Cookies.remove("userToken");
-                setToken("");
-                navigate("/");
-              }}
-            >
-              Se déconnecter
-            </button> */}
-
             <Link
               to="/"
               onClick={() => {
