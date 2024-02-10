@@ -1,8 +1,7 @@
 .comicDetailPage {
   padding: 10px;
   padding-top: 20px;
-  /* width: 100vw; */
-  height: 100vh;
+  min-height: 100vh;
   background-color: #2a1d3c;
 }
 

@@ -38,7 +38,7 @@ export default function CharacterDetailComicsPage() {
     <main className="characterDetailComicsPage">
       <h2 className="titre">
         Voici tous les comics dans lesquels vous pouvez retrouver{" "}
-        {characterName} !
+        <span className="characterTitle"> {characterName}</span> !
       </h2>
       <Link to={`/character/${id}`} key={id} className="moreCharacter">
         Plus d'infos sur ce personnage ? Cliquez ici

@@ -21,11 +21,8 @@ export default function CharacterPage() {
           `http://127.0.0.1:3000/character?name=${nameSearch}&page=${pageCount}`
         );
 
-        // console.log("response.data -->", response.data);
-
         setNumberPages(Math.ceil(response.data.count / response.data.limit));
         setCount(response.data.count);
-
         setCharacterList(response.data.results);
       } catch (error) {
         console.log("CharacterPage error -->", error);
@@ -36,9 +33,6 @@ export default function CharacterPage() {
     fetchData();
   }, [pageCount, nameSearch]);
 
-  // console.log("pageCount -->", pageCount);
-  // console.log("numberPages -->", numberPages);
-
   return isLoading ? (
     <p>Loading...</p>
   ) : (
@@ -48,7 +42,7 @@ export default function CharacterPage() {
           type="search"
           placeholder="Recherchez un nom de personnage"
           id="search"
-          autocomplete="off"
+          // autocomplete="off"
           value={nameSearch}
           onChange={(event) => {
             setNameSearch(event.target.value);
@@ -70,7 +64,7 @@ export default function CharacterPage() {
             </button>
             <button
               className="changePageNext"
-              disabled={pageCount == numberPages || numberPages == 0}
+              disabled={pageCount >= numberPages || numberPages == 0}
               onClick={() => setPageCount((prevState) => prevState + 1)}
             >
               Résultats suivants
@@ -114,7 +108,7 @@ export default function CharacterPage() {
             </button>
             <button
               className="changePageNext"
-              disabled={pageCount == numberPages || numberPages == 0}
+              disabled={pageCount >= numberPages || numberPages == 0}
               onClick={() => setPageCount((prevState) => prevState + 1)}
             >
               Résultats suivants
