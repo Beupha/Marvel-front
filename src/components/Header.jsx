@@ -1,6 +1,7 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import logo from "../assets/logo-marvel.jpg";
 
 export default function Header({ token, setToken }) {
   const navigate = useNavigate();
@@ -9,37 +10,54 @@ export default function Header({ token, setToken }) {
     <>
       <div className="header">
         <Link to="/">
-          <p>MARVEL</p>
+          <img src={logo} alt="" className="logo" />
         </Link>
-        <Link to="/character">Personnages </Link>
-        <Link to="/comics">Comics </Link>
+        <div className="textHeader">
+          {/* <div className="characterAndComic"> */}
+          <Link to="/character" className="detailHeader">
+            Personnages
+          </Link>
+          <Link to="/comics" className="detailHeader">
+            Comics
+          </Link>
+          {/* </div> */}
 
-        {token ? (
-          <>
-            <Link
-              to="/"
-              onClick={() => {
-                Cookies.remove("userToken");
-                setToken("");
-              }}
-            >
-              Se déconnecter{" "}
-            </Link>
-
-            <button
-              onClick={() => {
-                navigate("/fav");
-              }}
-            >
-              Favoris
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to="/user/login">Se connecter</Link>
-            <Link to="/user/signup">S'inscrire </Link>
-          </>
-        )}
+          {token ? (
+            <>
+              {/* <div className="loginAndSignup"> */}
+              <Link
+                to="/"
+                className="detailHeader"
+                onClick={() => {
+                  Cookies.remove("userToken");
+                  setToken("");
+                }}
+              >
+                Se déconnecter
+              </Link>
+              <button
+                className="detailHeader"
+                onClick={() => {
+                  navigate("/fav");
+                }}
+              >
+                Favoris
+              </button>
+              {/* </div> */}
+            </>
+          ) : (
+            <>
+              {/* <div className="loginAndSignup"> */}
+              <Link to="/user/login" className="detailHeader">
+                Se connecter
+              </Link>
+              <Link to="/user/signup" className="detailHeader">
+                S'inscrire
+              </Link>
+              {/* </div> */}
+            </>
+          )}
+        </div>
       </div>
       <div className="separation"></div>
     </>

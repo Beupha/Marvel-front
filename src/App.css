@@ -6,15 +6,13 @@ a {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
   background-color: #292261;
   color: beige;
   height: 60px;
 }
 
-.headerDetail {
-  display: flex;
-  gap: 50px;
+.header :not(:first-child) {
+  padding: 20px;
 }
 
 .disconnect {
@@ -32,4 +30,72 @@ h2 {
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 25px;
+}
+
+.logo {
+  height: 60px;
+  width: 150px;
+}
+
+.textHeader {
+  width: calc(100% - 150px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 30px;
+  height: 60px;
+}
+
+.detailHeader {
+  font-size: 18px;
+}
+
+@media (max-width: 700px) {
+  .textHeader {
+    height: 120px;
+    margin-right: 0px;
+    margin-left: 0px;
+    position: absolute;
+    transform: translateX(60px);
+    width: calc(100% - 60px);
+    flex-wrap: wrap;
+  }
+  .detailHeader {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    height: 60px;
+    width: 120px;
+    transform: rotate(-90deg) translateX(-30px) translateY(-30px);
+  }
+  .header {
+    height: 120px;
+  }
+}
+
+@media (max-width: 570px) {
+  .detailHeader {
+    width: 160px;
+    justify-content: center;
+  }
+  .header :not(:first-child) {
+    padding: 5px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .detailHeader {
+    width: 130px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .detailHeader {
+    width: 100px;
+  }
 }
