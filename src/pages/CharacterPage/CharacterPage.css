@@ -31,14 +31,14 @@
 .avatarAndName img {
   height: 190px;
   width: 190px;
-  border-radius: 30%;
+  border-radius: 20%;
   margin-bottom: 50px;
 }
 
 .characterName {
   font-size: 22px;
   color: rgb(255, 255, 255);
-  width: 240px;
+  width: 300px;
   text-align: center;
 }
 

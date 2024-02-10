@@ -25,8 +25,8 @@ export default function SignUpPage({ setToken }) {
           password,
         });
         Cookies.set("userToken", data.token, { secure: true });
-        setToken(data.token);
         navigate("/");
+        setToken(data.token);
       } else {
         setErrorMessage("Veuillez remplir tous les champs");
       }

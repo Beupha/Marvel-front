@@ -4,10 +4,26 @@ import { Link, useParams, useLocation } from "react-router-dom";
 
 import "./ComicPage.css";
 
-export default function ComicPage() {
+export default function ComicPage({ token }) {
   const params = useParams();
   const [dataComic, setDataComic] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [id, setId] = useState("");
+
+  const OnSubmit = async () => {
+    try {
+      {
+        const response = await axios.post(
+          `http://127.0.0.1:3000/user/favoris/comic`,
+          { token, id }
+        );
+        // console.log("token -->", token);
+        // console.log("id -->", id);
+      }
+    } catch (error) {
+      console.log("Comic Detail Page error (favori) -->", error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +32,7 @@ export default function ComicPage() {
           `http://127.0.0.1:3000/comic/${params.comicId}`
         );
         setDataComic(response.data);
+        setId(params.comicId);
       } catch (error) {
         console.log("Comic Detail Page error -->", error);
       }
@@ -30,6 +47,9 @@ export default function ComicPage() {
     <p>Loading...</p>
   ) : (
     <main className="comicDetailPage">
+      <button className="favText" onClick={OnSubmit}>
+        J'ajoute ce comic à mes favoris !
+      </button>
       <div className="comicTitle">{dataComic.title}</div>
       <div className="comicDescriptionDetail">{dataComic.description}</div>
 

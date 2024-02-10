@@ -4,11 +4,26 @@ import { Link, useParams } from "react-router-dom";
 
 import "./CharacterDetailPage.css";
 
-export default function CharacterPage() {
+export default function CharacterPage({ token }) {
   const [dataCharacter, setDataCharacter] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams();
   const [id, setId] = useState("");
+
+  const OnSubmit = async () => {
+    try {
+      {
+        const response = await axios.post(
+          `http://127.0.0.1:3000/user/favoris`,
+          { token, id }
+        );
+        console.log("token -->", token);
+        console.log("id -->", id);
+      }
+    } catch (error) {
+      console.log("Character Detail Page error (favori) -->", error.response);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +46,9 @@ export default function CharacterPage() {
     <p>Loading...</p>
   ) : (
     <main className="characterDetailPage">
+      <button className="favText" onClick={OnSubmit}>
+        J'ajoute ce personnage à mes favoris !
+      </button>
       <span className="characterName">{dataCharacter.name}</span>
       <span className="characterDescription">{dataCharacter.description}</span>
       <img

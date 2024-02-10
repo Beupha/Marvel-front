@@ -29,10 +29,10 @@ function App() {
           <Route path="/character" element={<CharacterPage />} />
           <Route
             path="/character/:characterId"
-            element={<CharacterDetailPage />}
+            element={<CharacterDetailPage token={token} />}
           />
           <Route path="/comics" element={<ComicsPage />} />
-          <Route path="/comic/:comicId" element={<ComicPage />} />
+          <Route path="/comic/:comicId" element={<ComicPage token={token} />} />
           <Route
             path="/comics/:characterId"
             element={<CharacterDetailComicsPage />}
@@ -48,7 +48,7 @@ function App() {
             token={token}
             element={<LoginPage />}
           />
-          <Route path="/user/favoris" token={token} element={<FavorisPage />} />
+          <Route path="/user/favoris" element={<FavorisPage token={token} />} />
         </Routes>
       </Router>
     </>

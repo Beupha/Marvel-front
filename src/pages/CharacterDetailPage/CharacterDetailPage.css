@@ -27,3 +27,8 @@
 .characterThumbnail {
   height: 50vh;
 }
+
+.favText {
+  color: aliceblue;
+  background-color: #2a1d3c;
+}
