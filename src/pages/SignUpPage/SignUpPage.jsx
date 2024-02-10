@@ -37,8 +37,6 @@ export default function SignUpPage({ setToken }) {
 
   return (
     <main className="signupPage">
-      <h1>S'inscrire</h1>
-
       <form onSubmit={handleSubmit} className="formSignUp">
         <input
           type="text"
@@ -77,7 +75,9 @@ export default function SignUpPage({ setToken }) {
         />
 
         <button className="buttonInscrire">S'inscrire</button>
-
+        <Link to="/user/login" className="modal">
+          Déjà un compte ? Connectez-vous !
+        </Link>
         {errorMessage && <p>{errorMessage}</p>}
       </form>
 

@@ -6,7 +6,7 @@
 .characterDetailComicsPage {
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 100%;
+  min-height: 100vh;
   width: auto;
   background-color: #2a1d3c;
 }

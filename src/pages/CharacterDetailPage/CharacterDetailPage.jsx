@@ -27,8 +27,6 @@ export default function CharacterPage() {
     fetchData();
   }, []);
 
-  console.log(dataCharacter);
-
   return isLoading ? (
     <p>Loading...</p>
   ) : (

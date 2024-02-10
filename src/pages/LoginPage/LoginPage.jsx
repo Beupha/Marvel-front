@@ -38,8 +38,6 @@ export default function Login({ setToken }) {
 
   return (
     <main className="loginPage">
-      <h1>Se connecter</h1>
-
       <form onSubmit={handleSubmit} className="formLogin">
         <input
           type="email"
@@ -67,13 +65,12 @@ export default function Login({ setToken }) {
         />
 
         <button className="buttonConnecter">Se connecter</button>
+        <Link to="/user/Signup" className="modal">
+          Pas encore de compte ? Inscrivez-vous !
+        </Link>
 
         {errorMessage && <p>{errorMessage}</p>}
       </form>
-
-      <Link to="/Signup" className="modal">
-        Pas encore de compte ? Inscrivez-vous !
-      </Link>
 
       <div className="errorPassword">
         {errorPassword && <p>{errorPassword}</p>}

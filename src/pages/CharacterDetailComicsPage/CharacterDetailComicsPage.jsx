@@ -10,12 +10,11 @@ export default function CharacterDetailComicsPage() {
   const [characterName, setCharacterName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [id, setId] = useState("");
+  const [pageCount, setPageCount] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log("params -->", params);
-
         const response = await axios.get(
           `http://127.0.0.1:3000/comics/${params.characterId}`
         );
@@ -24,7 +23,7 @@ export default function CharacterDetailComicsPage() {
         setCharacterName(response.data.name);
         setDataComics(response.data.comics);
       } catch (error) {
-        console.log("Character Detail Comics Page error -->", error.response);
+        console.log("Character Detail Comics Page error -->", error);
       }
 
       setIsLoading(false);

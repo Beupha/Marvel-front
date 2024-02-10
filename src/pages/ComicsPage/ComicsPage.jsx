@@ -30,11 +30,6 @@ export default function ComicsPage() {
     fetchData();
   }, [pageCount, titleSearch]);
 
-  console.log("titleSearch -->", titleSearch);
-  console.log("count -->", count);
-  console.log("pageCount -->", pageCount);
-  console.log("numberPages -->", numberPages);
-
   return isLoading ? (
     <p>Loading...</p>
   ) : (
