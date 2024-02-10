@@ -94,8 +94,14 @@ h2 {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 395px) {
   .detailHeader {
-    width: 100px;
+    width: 115px;
+  }
+}
+
+@media (max-width: 305px) {
+  .detailHeader {
+    width: 110px;
   }
 }

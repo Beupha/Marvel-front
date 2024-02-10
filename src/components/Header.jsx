@@ -35,14 +35,11 @@ export default function Header({ token, setToken }) {
               >
                 Se déconnecter
               </Link>
-              <button
-                className="detailHeader"
-                onClick={() => {
-                  navigate("/fav");
-                }}
-              >
-                Favoris
-              </button>
+
+              <Link to="/user/favoris" className="detailHeader">
+                Favoris{" "}
+              </Link>
+
               {/* </div> */}
             </>
           ) : (

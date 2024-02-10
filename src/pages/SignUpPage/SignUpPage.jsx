@@ -80,15 +80,6 @@ export default function SignUpPage({ setToken }) {
         </Link>
         {errorMessage && <p>{errorMessage}</p>}
       </form>
-
-      {/* <p
-        className="modal"
-        onClick={() => {
-          setDisplayModalConnect(true);
-        }}
-      >
-        Déjà un compte ? Connectez-vous !
-      </p> */}
     </main>
   );
 }
