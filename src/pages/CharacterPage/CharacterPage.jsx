@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./CharacterPage.css";
-// import Paginate from "../../components/paginate";
 
 export default function CharacterPage() {
   const [characterList, setCharacterList] = useState([]);
@@ -20,7 +19,7 @@ export default function CharacterPage() {
         const response = await axios.get(
           `http://127.0.0.1:3000/character?name=${nameSearch}&page=${pageCount}`
         );
-
+        console.log(response);
         setNumberPages(Math.ceil(response.data.count / response.data.limit));
         setCount(response.data.count);
         setCharacterList(response.data.results);
@@ -46,6 +45,7 @@ export default function CharacterPage() {
           value={nameSearch}
           onChange={(event) => {
             setNameSearch(event.target.value);
+            setPageCount(1);
           }}
         />
       </form>

@@ -43,6 +43,7 @@ export default function ComicsPage() {
           value={titleSearch}
           onChange={(event) => {
             setTitleSearch(event.target.value);
+            setPageCount(1);
           }}
         />
       </form>

@@ -1,0 +1,35 @@
+.HomePage {
+  padding: 20px;
+  width: 100wh;
+  background-color: #2a1d3c;
+  min-height: 100vh;
+}
+
+.charactersPick,
+.comicsPick {
+  color: antiquewhite;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.linkCharacters,
+.linkComics {
+  color: rgb(152, 150, 147);
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+}
+
+.charactersCaroussel {
+  border: 1px solid red;
+  height: 300px;
+  margin: 30px;
+}
+
+.comicsCaroussel {
+  border: 1px solid rgb(167, 243, 92);
+  height: 300px;
+  margin: 30px;
+}

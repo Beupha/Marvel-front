@@ -51,6 +51,8 @@
 
 .moreCharacter {
   color: #9993c7;
+  font-style: italic;
+
   font-size: 18px;
   display: flex;
   justify-content: center;
