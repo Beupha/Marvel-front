@@ -30,16 +30,14 @@
 }
 
 .avatarAndNameComic img {
-  height: 190px;
   width: 190px;
-  border-radius: 20%;
   margin-bottom: 50px;
+  object-fit: contain;
 }
 
 .comicName {
   font-size: 22px;
   color: rgb(255, 255, 255);
-
   width: 300px;
   text-align: center;
 }

@@ -5,10 +5,11 @@
   min-height: 100vh;
 }
 
+/* TEXTES */
+
 .charactersPick,
 .comicsPick {
   color: antiquewhite;
-  padding-bottom: 20px;
   padding-top: 20px;
   text-align: center;
   font-size: 20px;
@@ -20,16 +21,83 @@
   display: flex;
   justify-content: center;
   font-style: italic;
+  padding-bottom: 30px;
 }
+
+/* LINK PERSOS + COMICS */
+
+.avatarAndNameHomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+  justify-self: end;
+  /* border: 1px solid rgb(26, 255, 0); */
+  /* column-gap: 200px; */
+}
+
+.avatarAndNameHomePage img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.imgCharacter {
+  height: 200px;
+  object-fit: contain;
+}
+
+.avatarAndNameHomePageCharacter img {
+  /* border: solid red 1px; */
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+}
+
+/* CAROUSEL PERSOS */
 
 .charactersCaroussel {
-  border: 1px solid red;
-  height: 300px;
+  border: 1px solid rgb(135, 135, 135);
+  height: 400px;
   margin: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
 }
 
+.characterNameHomePage {
+  text-align: center;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  width: 400px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CAROUSEL COMICS */
+
 .comicsCaroussel {
-  border: 1px solid rgb(167, 243, 92);
-  height: 300px;
+  border: 1px solid rgb(135, 135, 135);
+  height: 430px;
   margin: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.comicTitleHomePage {
+  text-align: center;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  height: 80px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
