@@ -19,11 +19,11 @@ export default function ComicPage({ token }) {
           `https://site--marvel-back--fzydy6yrfhrj.code.run/user/favoris/comic`,
           { token, id }
         );
+        alert("Le comic a bien été ajouté à vos favoris");
       }
     } catch (error) {
       console.log("Comic Detail Page error (favori) -->", error);
     }
-    alert("Le comic a bien été ajouté à vos favoris");
   };
 
   useEffect(() => {

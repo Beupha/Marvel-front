@@ -19,6 +19,7 @@ export default function CharacterPage({ token }) {
           `http://127.0.0.1:3000/user/favoris`,
           { token, id }
         );
+        alert("Le personnage a bien été ajouté à vos favoris");
         // console.log("token -->", token);
         // console.log("id -->", id);
       }
