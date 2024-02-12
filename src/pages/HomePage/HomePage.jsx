@@ -32,7 +32,7 @@ export default function HomePage() {
       try {
         if (theArrayCharacters.length < 11) {
           const response = await axios.get(
-            `http://127.0.0.1:3000/character?page=${pageCountCharacter}`
+            `https://site--marvel-back--fzydy6yrfhrj.code.run/character?page=${pageCountCharacter}`
           );
 
           setCharacterData(response.data.results[numberCountCharacter]);

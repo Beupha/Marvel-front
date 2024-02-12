@@ -19,11 +19,14 @@ export default function SignUpPage({ setToken }) {
 
     try {
       if (username && email && password) {
-        const { data } = await axios.post("http://127.0.0.1:3000/user/signup", {
-          username,
-          email,
-          password,
-        });
+        const { data } = await axios.post(
+          "https://site--marvel-back--fzydy6yrfhrj.code.run/user/signup",
+          {
+            username,
+            email,
+            password,
+          }
+        );
         Cookies.set("userToken", data.token, { secure: true });
         navigate("/");
         setToken(data.token);

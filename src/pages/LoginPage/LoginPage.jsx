@@ -18,10 +18,13 @@ export default function Login({ setToken }) {
 
     try {
       if (email && password) {
-        const { data } = await axios.post("http://127.0.0.1:3000/user/login", {
-          email,
-          password,
-        });
+        const { data } = await axios.post(
+          "https://site--marvel-back--fzydy6yrfhrj.code.run/user/login",
+          {
+            email,
+            password,
+          }
+        );
 
         console.log(data);
         Cookies.set("userToken", data.token, { secure: true });

@@ -32,7 +32,7 @@ export default function CharacterPage({ token }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:3000/character/${params.characterId}`
+          `https://site--marvel-back--fzydy6yrfhrj.code.run/character/${params.characterId}`
         );
         setDataCharacter(response.data);
         setId(params.characterId);

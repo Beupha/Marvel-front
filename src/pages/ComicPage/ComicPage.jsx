@@ -16,7 +16,7 @@ export default function ComicPage({ token }) {
         alert("Vous n'êtes pas connecté");
       } else {
         const response = await axios.post(
-          `http://127.0.0.1:3000/user/favoris/comic`,
+          `https://site--marvel-back--fzydy6yrfhrj.code.run/user/favoris/comic`,
           { token, id }
         );
       }
@@ -30,7 +30,7 @@ export default function ComicPage({ token }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:3000/comic/${params.comicId}`
+          `https://site--marvel-back--fzydy6yrfhrj.code.run/comic/${params.comicId}`
         );
         setDataComic(response.data);
         setId(params.comicId);

@@ -14,11 +14,14 @@ export default function FavorisPage({ token }) {
     const fetchData = async () => {
       try {
         // console.log("token -->", token);
-        const response = await axios.get(`http://127.0.0.1:3000/user/favoris`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `https://site--marvel-back--fzydy6yrfhrj.code.run/user/favoris`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         // console.log("response.data -->", response.data);
 

@@ -16,7 +16,7 @@ export default function ComicsPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:3000/comics?title=${titleSearch}&page=${pageCount}`
+          `https://site--marvel-back--fzydy6yrfhrj.code.run/comics?title=${titleSearch}&page=${pageCount}`
         );
         setNumberPages(Math.ceil(response.data.count / response.data.limit));
         setCount(response.data.count);
