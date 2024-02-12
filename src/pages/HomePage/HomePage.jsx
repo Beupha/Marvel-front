@@ -58,7 +58,7 @@ export default function HomePage() {
       try {
         if (theArrayComics.length < 11) {
           const response = await axios.get(
-            `http://127.0.0.1:3000/comics?page=${pageCountComic}`
+            `https://site--marvel-back--fzydy6yrfhrj.code.run/comics?page=${pageCountComic}`
           );
 
           setComicData(response.data.results[numberCountComic]);
