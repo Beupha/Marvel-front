@@ -26,7 +26,6 @@ export default function CharacterPage({ token }) {
     } catch (error) {
       console.log("Character Detail Page error (favori) -->", error.response);
     }
-    alert("Le personnage a bien été ajouté à vos favoris");
   };
 
   useEffect(() => {
