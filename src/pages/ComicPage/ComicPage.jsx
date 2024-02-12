@@ -12,17 +12,18 @@ export default function ComicPage({ token }) {
 
   const OnSubmit = async () => {
     try {
-      {
+      if (token === null) {
+        alert("Vous n'êtes pas connecté");
+      } else {
         const response = await axios.post(
           `http://127.0.0.1:3000/user/favoris/comic`,
           { token, id }
         );
-        // console.log("token -->", token);
-        // console.log("id -->", id);
       }
     } catch (error) {
       console.log("Comic Detail Page error (favori) -->", error);
     }
+    alert("Le comic a bien été ajouté à vos favoris");
   };
 
   useEffect(() => {
@@ -33,8 +34,10 @@ export default function ComicPage({ token }) {
         );
         setDataComic(response.data);
         setId(params.comicId);
+
+        console.log(response);
       } catch (error) {
-        console.log("Comic Detail Page error -->", error);
+        console.log("Comic Detail Page error -->", error.response);
       }
 
       setIsLoading(false);

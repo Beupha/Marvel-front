@@ -31,8 +31,8 @@
 .avatarAndName img {
   height: 190px;
   width: 190px;
-  border-radius: 20%;
   margin-bottom: 50px;
+  object-fit: contain;
 }
 
 .characterName {

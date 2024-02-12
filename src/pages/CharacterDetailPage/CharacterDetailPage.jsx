@@ -12,17 +12,20 @@ export default function CharacterPage({ token }) {
 
   const OnSubmit = async () => {
     try {
-      {
+      if (token === null) {
+        alert("Vous n'êtes pas connecté");
+      } else {
         const response = await axios.post(
           `http://127.0.0.1:3000/user/favoris`,
           { token, id }
         );
-        console.log("token -->", token);
-        console.log("id -->", id);
+        // console.log("token -->", token);
+        // console.log("id -->", id);
       }
     } catch (error) {
       console.log("Character Detail Page error (favori) -->", error.response);
     }
+    alert("Le personnage a bien été ajouté à vos favoris");
   };
 
   useEffect(() => {
