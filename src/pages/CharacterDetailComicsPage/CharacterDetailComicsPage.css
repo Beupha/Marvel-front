@@ -30,6 +30,7 @@
 
 .thumbnailAndNameComic img {
   height: 400px;
+  width: 300px;
   border-radius: 10%;
   margin-top: 20px;
   object-fit: contain;
