@@ -35,7 +35,7 @@ export default function ComicPage({ token }) {
         setDataComic(response.data);
         setId(params.comicId);
 
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.log("Comic Detail Page error -->", error.response);
       }
